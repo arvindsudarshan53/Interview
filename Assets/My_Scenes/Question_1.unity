@@ -234,6 +234,7 @@ GameObject:
   - component: {fileID: 473802274}
   - component: {fileID: 473802276}
   - component: {fileID: 473802275}
+  - component: {fileID: 473802277}
   m_Layer: 5
   m_Name: Description
   m_TagString: Untagged
@@ -292,7 +293,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "Prints \"Hello\" for Divisible by 3 and \"World\" \nfor divisible by 5"
+  m_Text: "Prints \"Hello\" for Divisible by 3 and \"World\" \nfor divisible by 5\n\nPRESS
+    \"ESC\" for MENU"
 --- !u!222 &473802276
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -301,6 +303,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 473802273}
   m_CullTransparentMesh: 0
+--- !u!114 &473802277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 473802273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32c9b6e245d3c4cb793d3aced47dc1f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
