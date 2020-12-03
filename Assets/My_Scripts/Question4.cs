@@ -31,14 +31,14 @@ public class Question4 : MonoBehaviour
     }
 
 
-    void AddToNumberStack(int item)
+    void AddToNumberStack(int item) // Pushes value to Stack
     {
         numbersStack.Add(item);
         print("Added " + item);
     }
 
 
-    int GetValueFromStackAndRemove()
+    int GetValueFromStackAndRemove() // Pops value from Stack
     {
         int itemToReturn = numbersStack[numbersStack.Count - 1];
         numbersStack.RemoveAt(numbersStack.Count - 1);
@@ -49,12 +49,10 @@ public class Question4 : MonoBehaviour
     int val;
     char ch;
 
-    void SolveThisExpression(char[] postfix)
+    void SolveThisExpression(char[] postfix) //Main Logic...
     {
         
-        int A, B;
-
-        /* evaluate postfix expression */
+        int topMostValFromStack, secondTopMostValFromStack;
         for (int currentIndex = 0; currentIndex < postfix.Length; currentIndex++)
         {
             ch = postfix[currentIndex];
@@ -62,40 +60,33 @@ public class Question4 : MonoBehaviour
             if (IsNumber(ch))
             {
                 print("Digit");
-                /* we saw an operand,push the digit onto stack
-    ch - '0' is used for getting digit rather than ASCII code of digit */
                 AddToNumberStack(int.Parse(ch.ToString()));
             }
             else if (ch == '+' || ch == '-' || ch == '*' || ch == '/')
             {
                 print("Not Digit");
-                /* we saw an operator
-    * pop top element A and next-to-top elemnet B
-    * from stack and compute B operator A
-    */
-                A = GetValueFromStackAndRemove();
-                B = GetValueFromStackAndRemove();
+                topMostValFromStack = GetValueFromStackAndRemove();
+                secondTopMostValFromStack = GetValueFromStackAndRemove();
 
                 switch (ch) /* ch is an operator */
                 {
                     case '*':
-                        val = B * A;
+                        val = secondTopMostValFromStack * topMostValFromStack;
                         break;
 
                     case '/':
-                        val = B / A;
+                        val = secondTopMostValFromStack / topMostValFromStack;
                         break;
 
                     case '+':
-                        val = B + A;
+                        val = secondTopMostValFromStack + topMostValFromStack;
                         break;
 
                     case '-':
-                        val = B - A;
+                        val = secondTopMostValFromStack - topMostValFromStack;
                         break;
                 }
 
-                /* push the value obtained above onto the stack */
                 AddToNumberStack(val);
             }
         }

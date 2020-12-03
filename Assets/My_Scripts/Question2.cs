@@ -17,14 +17,14 @@ public class Question2 : MonoBehaviour // anagram checker
 
     public List<string> names1StringArray, names2StringArray;
 
-    public void UpdateNoOfSets()
+    public void UpdateNoOfSets() // gets No of sets input value from UI
     {
         noOfSets = int.Parse(inputNoOfSetsField.text);
-        noOfSets = Mathf.Clamp(noOfSets, 1, 100);
+        noOfSets = Mathf.Clamp(noOfSets, 1, 100); // No of sets Constrains
         ClearAllData();
     }
 
-    public void AddNamesToList()
+    public void AddNamesToList() // Stores values of Names One by One
     {
         if (inputName1Field.text == "" || inputName2Field.text == "")
             return;
@@ -39,7 +39,7 @@ public class Question2 : MonoBehaviour // anagram checker
         ClearInputNameFields();
     }
 
-    public void AddNamesButtonActivator()
+    public void AddNamesButtonActivator() //Shows only when both name field are not empty (data validation)
     {
          addNamesButton.SetActive(inputName1Field.text != "" && inputName2Field.text != ""? true : false);
     }
@@ -50,7 +50,7 @@ public class Question2 : MonoBehaviour // anagram checker
         inputName2Field.text = "";
     }
 
-    public void CheckForNoOfSetsAcheived()
+    public void CheckForNoOfSetsAcheived() // When No of sets inputs are filled enable Check for anagram button
     {
         inputName1Field.gameObject.SetActive(names1StringArray.Count < noOfSets ? true : false);
         inputName2Field.gameObject.SetActive(names2StringArray.Count < noOfSets ? true : false);
@@ -69,7 +69,7 @@ public class Question2 : MonoBehaviour // anagram checker
     }
 
 
-    string IsThisAnagram(string name1, string name2)
+    string IsThisAnagram(string name1, string name2) //Main Logic ... Checks for Anagram
     {
         char[] ch1 = name1.ToLower().ToCharArray();
         char[] ch2 = name2.ToLower().ToCharArray();

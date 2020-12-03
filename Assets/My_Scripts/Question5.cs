@@ -23,9 +23,9 @@ public class Question5 : MonoBehaviour // Finds Duplicate in list of Array
         DisplayListArray();
     }
 
-    public void FindDuplicateEntry()
+    public void FindDuplicateEntry() //Main Logic...
     {
-        var listWithoutDuplicateTemp = intArray.Distinct().ToList();
+        var listWithoutDuplicateTemp = intArray.Distinct().ToList(); // eliminates duplicate from list
         string withoutDuplicateStr = "";
         foreach(int i in listWithoutDuplicateTemp)
         {
